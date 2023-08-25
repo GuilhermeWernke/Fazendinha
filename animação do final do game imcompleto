@@ -1,0 +1,62 @@
+programa
+  {
+	inclua biblioteca Util --> u
+
+	funcao inicio()
+	{
+		inteiro coluna_inicial = 0
+		inteiro passos = 10
+		
+		animar(coluna_inicial, passos)
+	}
+     
+	funcao animar(inteiro coluna_inicial, inteiro passos)
+	{
+		inteiro coluna_final = coluna_inicial + passos
+		
+		para (inteiro coluna = coluna_inicial; coluna < coluna_final; coluna++)
+		{
+			para (inteiro andando = 0; andando <= 1; andando++)
+			{
+				limpa()
+				desenhar_pato(coluna, andando)
+				u.aguarde(500)
+			}
+		}
+
+		limpa()
+		desenhar_pato(coluna_final, 0)
+	}
+     //movimentaçao
+	funcao desenhar_pato(inteiro coluna, inteiro andando)
+	{
+		se (andando == 0)
+		{
+			branco((coluna * 3) + 7)
+			escreva(" (.)>   (.)>   (.)>   (.)>\n")
+			branco((coluna * 3) + 5)
+			escreva("..\\   )..\\   )..\\   )..\\   ).")
+		} 
+		senao
+		{
+			branco((coluna * 3) + 6)
+			branco(4)
+			escreva("(.)>   (.)>   (.)>   (.)>\n")
+			branco((coluna * 3) + 6)
+			escreva("..\\   )..\\   )..\\   )..\\   ).")
+		}
+
+		escreva("\n")
+	}
+     //pula espaços no inicio
+	funcao branco(inteiro quantidade)
+	{
+		inteiro brancos = 1
+		
+		enquanto (brancos <= quantidade)
+		{
+			escreva (" ")
+			brancos++
+		}
+	}
+}
