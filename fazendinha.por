@@ -143,11 +143,13 @@ programa
 					escreva("║                                                           ║ \n")
 					escreva("║                     1_ Mercado                            ║ \n")
 					escreva("║                                                           ║ \n")
-					escreva("║                     2_ Animais                            ║ \n")
+					escreva("║                     2_ Venda                              ║ \n")
 					escreva("║                                                           ║ \n")
-					escreva("║                     3_ Consumir Alimentos                 ║ \n")
+					escreva("║                     3_ Animais                            ║ \n")
 					escreva("║                                                           ║ \n")
-					escreva("║                     4_ Dormir                             ║ \n")
+					escreva("║                     4_ Consumir Alimentos                 ║ \n")
+					escreva("║                                                           ║ \n")
+					escreva("║                     5_ Dormir                             ║ \n")
 					escreva("║                                                           ║ \n")
 					escreva("╚═══════════════════════════════════════════════════════════╝ \n")
 					leia(opcao)
@@ -163,18 +165,22 @@ programa
 				 }
 				escolha(opcaoInt){
 					caso 1:
-						MercadoAnimais()
+						Mercado()
 					pare
 	
 					caso 2:
+						Venda()
+					pare
+
+					caso 3:
 						Animais()
 					pare
 	
-					caso 3:
+					caso 4:
 						ConsumirAlimentos()
 					pare
 					
-					caso 4:
+					caso 5:
 						dormir = 1
 					pare
 					
@@ -1165,6 +1171,7 @@ programa
 	}
      //pula espaços no inicio
 	funcao branco_coluna_baixo(inteiro quant)
+	
 	{
 		inteiro brancos = 1
 		enquanto (brancos <= quant)
@@ -1173,6 +1180,7 @@ programa
 			brancos++
 		}
 	}
+	
 	funcao branco_coluna_cima(inteiro quant)
 	{
 		inteiro brancos = 1
@@ -1182,8 +1190,9 @@ programa
 			brancos++
 		}
 	}
+	
 	funcao final(){
-		escreva(" ┌┬┐┬ ┬┬┌┬┐┌─┐ ┌─┐┌┐ ┬─┐┬┌─┐┌─┐┬┐┌─┐ ┌─┐┌─┐┬─┐ ┌┬┐┌─┐┬─┐  ┬┌─┐┌─┐┌─┐┬┐┌─┐\n")  
+          escreva(" ┌┬┐┬ ┬┬┌┬┐┌─┐ ┌─┐┌┐ ┬─┐┬┌─┐┌─┐┬┐┌─┐ ┌─┐┌─┐┬─┐ ┌┬┐┌─┐┬─┐  ┬┌─┐┌─┐┌─┐┬┐┌─┐\n")  
           escreva(" ││││ ││ │ │ │ │ │├┴┐├┬┘││ ┬├─┤│││ │ ├─┘│ │├┬┘  │ ├┤ ├┬┘  ││ ││ ┬├─┤│││ │\n")
           escreva(" ┴ ┴└─┘┴ ┴ └─┘ └─┘└─┘┴└─┴└─┘┴ ┴┴┘└─┘ ┴  └─┘┴└─  ┴ └─┘┴└─ └┘└─┘└─┘┴ ┴┴┘└─┘")
 	}
