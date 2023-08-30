@@ -163,7 +163,7 @@ programa
 				 }
 				escolha(opcaoInt){
 					caso 1:
-						MercadoAnimais()
+						Mercado()
 					pare
 	
 					caso 2:
