@@ -86,6 +86,7 @@ programa
 	     inteiro sair_voltar = 0
 	      
 	     enquanto(opcao != "1" ou opcao != "2"){
+	     	limpa()
 			escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 			escreva("║           Olá,  seja bem vindo ao nosso jogo!             ║ \n")
 			escreva("║                                                           ║ \n")
@@ -114,6 +115,7 @@ programa
 			comercarJogo()
 			pare
 			caso  2:
+			limpa()
 			escreva("Obrigado por não ter jogado")
 			pare
 		}//escolha
@@ -192,6 +194,7 @@ programa
 			}//se
 			enquanto(energia > 0 e dormir == 0){
 				enquanto(opcao != "1" ou opcao != "2" ou opcao != "3" ou opcao != "4"){
+					limpa()
 					escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 					escreva("║                                                           ║ \n")
 					escreva("║                O que deseja fazer hoje?                   ║ \n")
@@ -246,6 +249,7 @@ programa
 
 	funcao Mercado(){
 					enquanto(opcao != "1" ou opcao != "2" ou opcao != "3"){
+						limpa()
 						escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 						escreva("║                                                           ║ \n")
 						escreva("║               Escolha o que deseja comprar                ║ \n")
@@ -283,6 +287,7 @@ programa
 
 		funcao MercadoAnimais(){
 						enquanto(opcao != "1" ou opcao != "2" ou opcao != "3" ou opcao != "4"){
+							limpa()
 							escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 							escreva("║                                                           ║ \n")
 							escreva("║              Escolha um animal para comprar:              ║ \n")
@@ -328,6 +333,7 @@ programa
 	
 		funcao MercadoAlimento(){
 						enquanto(opcao != "1" ou opcao != "2" ou opcao != "3" ou opcao != "4" ou opcao != "5" ou opcao != "6" ou opcao != "7" ou opcao != "8" ou opcao != "9" ou opcao != "10" ou opcao != "11" ou opcao != "12" ou opcao != "13"){
+							limpa()
 							escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 							escreva("║                                                           ║ \n")
 							escreva("║            Escolha um alimento para comprar:              ║ \n")
@@ -365,6 +371,7 @@ programa
 								opcaoInt = t.cadeia_para_inteiro(opcao, 10)
 							}
 							senao{
+								limpa()
 								escreva("Valor informado está errado!\n")
 							}
 						}
@@ -427,6 +434,7 @@ programa
 
 	funcao Venda(){
 		enquanto(opcao != "1" ou opcao != "2" ou opcao != "3"){
+						limpa()
 						escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 						escreva("║                                                           ║ \n")
 						escreva("║                Escolha o que deseja vender                ║ \n")
@@ -465,6 +473,8 @@ programa
 		funcao VendaAnimais(){
 	
 			enquanto(opcao != "1" ou opcao != "2" ou opcao != "3" ou opcao != "4"){
+							
+							limpa()
 							escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 							escreva("║                                                           ║ \n")
 							escreva("║              Escolha um animal para vender:               ║ \n")
@@ -512,6 +522,7 @@ programa
 		funcao VendaAlimento(){
 	
 			enquanto(opcao != "1" ou opcao != "2" ou opcao != "3" ou opcao != "4" ou opcao != "5" ou opcao != "6" ou opcao != "7" ou opcao != "8" ou opcao != "9" ou opcao != "10" ou opcao != "11" ou opcao != "12"){
+							limpa()
 							escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 							escreva("║                                                           ║ \n")
 							escreva("║             Escolha um alimento para vender:              ║ \n")
@@ -790,10 +801,12 @@ programa
 							se(x <= 0 e z > 0){
 										y = a * y + z
 										x++
+										limpa()
 										escreva("Leite tirado com sucesso!\n")
 										u.aguarde(2000)
 									}
 									senao{
+										limpa()
 										escreva("Já tirou leite de todas as vacas!\nv")
 										u.aguarde(2000)
 									}
@@ -802,6 +815,7 @@ programa
 	funcao ConsumirAlimentos(){
 
 		enquanto(opcao != "1" ou opcao != "2" ou opcao != "3" ou opcao != "4" ou opcao != "5" ou opcao != "6" ou opcao != "7" ou opcao != "8" ou opcao != "9"){
+						limpa()
 						escreva("╔═══════════════════════════════════════════════════════════╗ \n")
 						escreva("║                                                           ║ \n")
 						escreva("║               Escolha um algo para ingerir:               ║ \n")
@@ -831,6 +845,8 @@ programa
 							opcaoInt = t.cadeia_para_inteiro(opcao, 10)
 						}
 						senao{
+							
+							limpa()
 							escreva("Valor informado está errado!\n")
 						}
 					}
@@ -873,6 +889,7 @@ programa
 
 	funcao AbreviarMercado(real x, inteiro y){
 
+               limpa()
                escreva("Quantos animais você deseja comprar? \n")
 			leia(quantidade)
 			escreva("Compra reultará em: ", quantidade * x)
@@ -887,6 +904,7 @@ programa
 				pare
 				}
 				senao{
+					limpa()
 					escreva("Valor informado está errado!\n")
 				}
 			}
@@ -895,10 +913,10 @@ programa
 			escolha(opcaoInt){
 				caso 1:
 					se(quantidade * x <= dinheiro e energia >= 15){
-						limpa()
 						y = y + quantidade
 						energia = energia - 15
 						dinheiro = dinheiro - (quantidade * x)
+						limpa()
 						escreva("Compra realizada com sucesso!\n")
 						u.aguarde(2000)
 					}
@@ -923,6 +941,7 @@ programa
 
 	funcao AbreviarVenda(real x, inteiro y){
 
+			limpa()
 			escreva("Quantos animais você deseja vender? \n")
 			leia(quantidade)
 			escreva("Venda reultará em: ", quantidade * x)
@@ -936,7 +955,8 @@ programa
 					opcaoInt = t.cadeia_para_inteiro(opcao, 10)
 				pare
 				}
-				senao{
+				senao{					
+					limpa()
 					escreva("Valor informado está errado!\n")
 				}
 			}
@@ -973,6 +993,7 @@ programa
 	
 	funcao AbreviarConsumo(inteiro x, inteiro y){
 
+			limpa()
 			escreva("Quantos deste alimento você deseja consumir?? \n")
 			leia(quantidade)
 			escreva("Consumo reultará em: ", y)
@@ -987,6 +1008,7 @@ programa
 				pare
 				}
 				senao{
+					limpa()
 					escreva("Valor informado está errado!\n")
 				}
 			}
@@ -1039,6 +1061,7 @@ programa
 						pare
 					}
 					senao{
+						limpa()
 						escreva("Valor informado está errado!\n")
 					}
 				}
@@ -1046,6 +1069,7 @@ programa
 				
 			escolha(opcaoInt){
 				caso 1:
+					limpa()
 					escreva("Quantas desta rações você deseja usar para alimentar este animal?? \n")
 					leia(quantidade)
 					escreva("Reultará em: ", quantidade)
@@ -1060,6 +1084,7 @@ programa
 						pare
 						}
 						senao{
+							limpa()
 							escreva("Valor informado está errado!\n")
 						}
 					}
@@ -1088,6 +1113,7 @@ programa
 							}//fim escolha compra
 				pare
 				caso 2:
+					limpa()
 					escreva("Quantas desta rações você deseja usar para alimentar este animal?? \n")
 					leia(quantidade)
 					escreva("Reultará em: ", quantidade)
@@ -1102,6 +1128,7 @@ programa
 						pare
 						}
 						senao{
+							limpa()
 							escreva("Valor informado está errado!\n")
 						}
 					}
@@ -1130,6 +1157,7 @@ programa
 							}//fim escolha compra
 				pare
 				caso 3:
+					limpa()
 					escreva("Quantas desta rações você deseja usar para alimentar este animal?? \n")
 					leia(quantidade)
 					escreva("Reultará em: ", quantidade)
@@ -1144,6 +1172,7 @@ programa
 						pare
 						}
 						senao{
+							limpa()
 							escreva("Valor informado está errado!\n")
 						}
 					}
