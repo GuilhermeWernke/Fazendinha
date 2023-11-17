@@ -2,7 +2,6 @@
 	//números de performance do jogo
     $numeroDias = 0;
     $opcao = "0";
-    $opcaoInt;
     $quantidade;
     $energia = 100;
     $dormir = 0;
@@ -77,72 +76,67 @@
     $comecar_jogo = 0;
     $sair_voltar = 0;
     
-    enquanto(opcao != "1" ou opcao != "2")
+    while($opcao != "1" or $opcao != "2")
     {
-        echo("╔═══════════════════════════════════════════════════════════╗ \n")
-        echo("║           Olá,  seja bem vindo ao nosso jogo!             ║ \n")
-        echo("║                                                           ║ \n")
-        echo("║                    Escolha uma opção:                     ║ \n")
-        echo("║                                                           ║ \n")
-        echo("║                     1_ Iniciar jogo                       ║ \n")
-        echo("║                                                           ║ \n")
-        echo("║                     2_ Sair/Voltar                        ║ \n")
-        echo("║                                                           ║ \n")
-        echo("╚═══════════════════════════════════════════════════════════╝ \n")
+        echo("╔═══════════════════════════════════════════════════════════╗ \n");
+        echo("║           Olá,  seja bem vindo ao nosso jogo!             ║ \n");
+        echo("║                                                           ║ \n");
+        echo("║                    Escolha uma opção:                     ║ \n");
+        echo("║                                                           ║ \n");
+        echo("║                     1_ Iniciar jogo                       ║ \n");
+        echo("║                                                           ║ \n");
+        echo("║                     2_ Sair/Voltar                        ║ \n");
+        echo("║                                                           ║ \n");
+        echo("╚═══════════════════════════════════════════════════════════╝ \n");
                     
-        leia(opcao)
-
-        se(opcao == "1" ou opcao == "2")
+        $opcao = readline("");
+        if($opcao != "1" and $opcao != "2")
         {
-            opcaoInt = t.cadeia_para_inteiro(opcao, 10)
-            pare
-        }
-        senao
-        {
-            echo("Valor informado está errado!\n")
-            u.aguarde(1000)
+            echo("Valor informado está errado!\n");
+            u.aguarde(1000);
         }
     }
 
-    escolha(opcaoInt)
+    switch(opcaoInt)
     {
-        caso  1:
-        comercarJogo()
-        pare
-        caso  2:
-        animacao2()
-        pare
+        case  1:
+            comercarJogo();
+        break;
+        case  2:
+            animacao2();
+        break;
     }//escolha
     
     
 
 
-	funcao comercarJogo()
+	function comercarJogo()
     {
 		
-		para(numeroDias = numeroDias; numeroDias < 100; numeroDias++)
+		for($numeroDias = $numeroDias; $numeroDias < 100; $numeroDias++)
         {
 
-			time_leite_jumenta = 0
-			time_leite_vaca = 0
+			$time_leite_jumenta = 0;
+			$time_leite_vaca = 0;
 
-			Subtrair(time_bebe_vaca)
-			Subtrair(time_bebe_jumenta)
+			Subtrair(time_bebe_vaca);
+			Subtrair(time_bebe_jumenta);
 
-			se(time_fazer_bebe_vaca > 0)
+			if(time_fazer_bebe_vaca > 0)
             {
-				Subtrair(time_fazer_bebe_vaca)
+				Subtrair(time_fazer_bebe_vaca);
 			}
-			senao{
-				para(bebe_vaca; bebe_vaca != 0; bebe_vaca--)
+			else{
+				for($bebe_vaca; $bebe_vaca != 0; $bebe_vaca--)
                 {
-					quantidade = u.sorteia(1, 10)
-					se(quantidade > 0 e quantidade < 4)
+					$quantidade = u.sorteia(1, 10);
+					if($quantidade > 0 and $quantidade < 4)
                     {
-						touro++
+						$touro++;
 					}
-					senao{
-						vaca++
+					else
+                    {
+						vaca++;
 					}
 				}
 			}
@@ -150,7 +144,7 @@
 			
 			se(time_fazer_bebe_jumenta > 0)
             {
-				Subtrair(time_fazer_bebe_jumenta)
+				Subtrair(time_fazer_bebe_jumenta);
 			}
 			senao
             {
@@ -215,6 +209,8 @@
 		u.aguarde(3000)
 		inicio_animacao()
 	} // fim da funcao comercarJogo
+
+
 	funcao mercado_inicio()
     {
 		enquanto(energia > 0 e dormir == 0)
