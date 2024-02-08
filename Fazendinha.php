@@ -1,7 +1,7 @@
 <?php
 	//números de performance do jogo
     $numeroDias = 0;
-    $$opcao = "0";
+    $opcao = "0";
     $quantidade;
     $energia = 100;
     $dormir = 0;
@@ -58,7 +58,7 @@
     $time_leite_jumenta = 0;
     $time_reproducao_torro = 0;
     $time_reproducao_jegue = 0;
-    $$vaca_alimentada = 0.0;
+    $vaca_alimentada = 0.0;
     $touro_alimentado = 0.0;
     $jumenta_alimentada = 0.0;
     $jegue_alimentado = 0.0;
@@ -76,10 +76,10 @@
     $comecar_jogo = 0;
     $sair_voltar = 0;
     
-    while($$opcao != "1" or $$opcao != "2")
+    while(is_integer($opcao) and !($opcao >= 1 and $opcao <= 2))
     {
         echo("╔═══════════════════════════════════════════════════════════╗ \n");
-        echo("║           Olá,  ifja bem vindo ao nosso jogo!             ║ \n");
+        echo("║           Olá,  seja bem vindo ao nosso jogo!             ║ \n");
         echo("║                                                           ║ \n");
         echo("║                    Escolha uma opção:                     ║ \n");
         echo("║                                                           ║ \n");
@@ -89,23 +89,24 @@
         echo("║                                                           ║ \n");
         echo("╚═══════════════════════════════════════════════════════════╝ \n");
                     
-        $$opcao = readline("");
-        if($$opcao != "1" and $$opcao != "2")
+        $opcao = readline("");
+        if(is_integer($opcao) and !($opcao >= 1 and $opcao <= 2)) 
         {
             echo("Valor informado está errado!\n");
             u.aguarde(1000);
         }
-    }
 
-    switch($opcaoInt)
-    {
-        case  1:
-            comercarJogo();
-        break;
-        case  2:
-            animacao2();
-        break;
-    }//switch
+        switch($opcaoInt)
+        {
+            case  1:
+                comercarJogo();
+            break;
+            case  2:
+                animacao2();
+            break;
+        }//switch
+
+    }
     
     
 
@@ -136,7 +137,7 @@
 					}
 					else
                     {
-						$$vaca++;
+						$vaca++;
 					}
 				}
 			}
@@ -205,7 +206,7 @@
     {
 		while($energia > 0 and $dormir == 0)
         {
-            while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4"  or $opcao != "5")
+            while(is_integer($opcao) and !($opcao >= 1 and $opcao <=5))
             {
                 echo("╔═══════════════════════════════════════════════════════════╗ \n");
                 echo("║                                                           ║ \n");
@@ -226,7 +227,7 @@
                 echo("╚═══════════════════════════════════════════════════════════╝ \n");
                 $opcao = readline("");
 
-                if($opcao == "1" or $opcao == "2" or $opcao == "3" or $opcao == "4"  or $opcao == "5")
+                if(is_integer($opcao) and !($opcao >= 1 and $opcao <=5))
                 {
                     $opcaoInt = $opcao;
                     break;
@@ -264,7 +265,7 @@
 
 	function Mercado()
     {
-        while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4")
+        while(is_integer($opcao) and !($opcao >= 1 and $opcao <=4))
         {
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
@@ -281,7 +282,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
 
-            if($opcao == "1" or $opcao == "2"  or $opcao == "3" or $opcao == "4")
+            if(is_integer($opcao) and !($opcao >= 1 and $opcao <=4))
             {
                 $opcaoInt = $opcao;
                 break;
@@ -314,11 +315,11 @@
 
     function MercadoAnimais()
     {
-        while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4" or $opcao != "5")
+        while(is_integer($opcao) and !($opcao >= 1 and $opcao <=5))
         {
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
-            echo("║              Escolha um animal forcomprar:              ║ \n");
+            echo("║              Escolha um animal para comprar:              ║ \n");
             echo("║                                                           ║ \n");
             echo("║                      1_ Vaca                              ║ \n");
             echo("║                                                           ║ \n");
@@ -333,7 +334,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
 
-            if($opcao == "1" or $opcao == "2"  or $opcao == "3"  or $opcao == "4" or $opcao == "5")
+            if(is_integer($opcao) and !($opcao >= 1 and $opcao <=5))
             {
                 $opcaoInt = $opcao;
                 break;
@@ -370,11 +371,11 @@
 
     function MercadoAlimento()
     {
-        while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4" or $opcao != "5" or $opcao != "6" or $opcao != "7" or $opcao != "8" or $opcao != "9" or $opcao != "10" or $opcao != "11" or $opcao != "12" or $opcao != "13" or $opcao != "14")
+        while(is_integer($opcao) and !($opcao >= 1 and $opcao <=14))
         {
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
-            echo("║            Escolha um alimento forcomprar:              ║ \n");
+            echo("║            Escolha um alimento para comprar:              ║ \n");
             echo("║                                                           ║ \n");
             echo("║                  1_ Carne de Gato                         ║ \n");
             echo("║                                                           ║ \n");
@@ -407,7 +408,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
             
-            if($opcao == "1" or $opcao == "2" or $opcao == "3" or $opcao == "4" or $opcao == "5" or $opcao == "6" or $opcao == "7" or $opcao == "8" or $opcao == "9" or $opcao == "10" or $opcao == "11" or $opcao == "12" or $opcao == "13" or $opcao == "14")
+            if(is_integer($opcao) and !($opcao >= 1 and $opcao <=14))
             {
                 $opcaoInt = $opcao;
                 break;
@@ -482,7 +483,7 @@
 
 	function Venda()
     {
-		while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4")
+		while(is_integer($opcao) and !($opcao >= 1 and $opcao <=4))
         {
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
@@ -499,7 +500,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
 
-            if($opcao == "1" or $opcao == "2"  or $opcao == "3" or $opcao == "4")
+            if(is_integer($opcao) and !($opcao >= 1 and $opcao <=4))
             {
                 $opcaoInt = $opcao;
                 break;
@@ -531,11 +532,11 @@
 
     function VendaAnimais()
     {
-        while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4" or $opcao != "5")
+        while(is_integer($opcao) and !($opcao >= 1 and $opcao <=5))
         {
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
-            echo("║              Escolha um animal forvender:               ║ \n");
+            echo("║              Escolha um animal para vender:               ║ \n");
             echo("║                                                           ║ \n");
             echo("║                     1_ vaca                               ║ \n");
             echo("║                                                           ║ \n");
@@ -550,7 +551,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
 
-            if($opcao == "1" or $opcao == "2"  or $opcao == "3"  or $opcao == "4" or $opcao =="5")
+            if(is_integer($opcao) and !($opcao >= 1 and $opcao <=5))
             {
                 $opcaoInt = $opcao;
                 break;
@@ -588,11 +589,11 @@
 
     function VendaAlimento()
     {
-        while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4" or $opcao != "5" or $opcao != "6" or $opcao != "7" or $opcao != "8" or $opcao != "9" or $opcao != "10" or $opcao != "11" or $opcao != "12" or $opcao != "13")
+        while(is_integer($opcao) and $opcao >= 1 and $opcao <= 13)
         {
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
-            echo("║             Escolha um alimento forvender:              ║ \n");
+            echo("║             Escolha um alimento para vender:              ║ \n");
             echo("║                                                           ║ \n");
             echo("║                  1_ Carne de Gato                         ║ \n");
             echo("║                                                           ║ \n");
@@ -623,7 +624,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
             
-            if($opcao == "1" or $opcao == "2" or $opcao == "3" or $opcao == "4" or $opcao == "5" or $opcao == "6" or $opcao == "7" or $opcao == "8" or $opcao == "9" or $opcao == "10" or $opcao == "11" or $opcao == "12" or $opcao == "13")
+            if(is_integer($opcao) and $opcao >= 1 and $opcao <= 13)
             {
                 $opcaoInt = $opcao;
                 break;
@@ -695,7 +696,7 @@
 
 	function Animais()
     {
-        while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4" or $opcao != "5")
+        while(is_integer($opcao) and !($opcao >= 1 and $opcao <=5))
         { 
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
@@ -716,7 +717,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
         
-            if($opcao == "1" or $opcao == "2" or $opcao == "3" or $opcao == "4" or $opcao == "5")
+            if(is_integer($opcao) and $opcao >= 1 and $opcao <= 5)
             {
                 $opcaoInt = $opcao;
                 break;
@@ -731,7 +732,7 @@
             {
                 case 1:
                 
-                    while($opcao != "1" or $opcao != "2" or $opcao != "3")
+                    while(is_integer($opcao) and $opcao >= 1 and $opcao <= 3)
                     {
                         echo("╔═══════════════════════════════════════════════════════════╗ \n");
                         echo("║                                                           ║ \n");
@@ -748,7 +749,7 @@
                         echo("╚═══════════════════════════════════════════════════════════╝ \n");
                         $opcao = readline("");
                         
-                        if($opcao == "1" or $opcao == "2" or $opcao == "3")
+                        if(is_integer($opcao) and $opcao >= 1 and $opcao <= 3)
                         {
                             $opcaoInt = $opcao;
                             break;
@@ -776,7 +777,7 @@
                 break;
                 case 2:
                 
-                    while($opcao != "1" or $opcao != "2" or $opcao != "3")
+                    while(is_integer($opcao) and $opcao >= 1 and $opcao <= 3)
                     {
                         echo("╔═══════════════════════════════════════════════════════════╗ \n");
                         echo("║                                                           ║ \n");
@@ -793,7 +794,7 @@
                         echo("╚═══════════════════════════════════════════════════════════╝ \n");
                         $opcao = readline("");
                         
-                        if($opcao == "1" or $opcao == "2" or $opcao == "3")
+                        if(is_integer($opcao) and $opcao >= 1 and $opcao <= 3)
                         {
                             $opcaoInt = $opcao;
                             break;
@@ -818,7 +819,7 @@
                 break;
                 case 3:
                 
-                    while($opcao != "1" or $opcao != "2" or $opcao != "3")
+                    while(is_integer($opcao) and $opcao >= 1 and $opcao <= 3)
                     {
                         echo("╔═══════════════════════════════════════════════════════════╗ \n");
                         echo("║                                                           ║ \n");
@@ -835,7 +836,7 @@
                         echo("╚═══════════════════════════════════════════════════════════╝ \n");
                         $opcao = readline("");
                         
-                        if($opcao == "1" or $opcao == "2" or $opcao == "3")
+                        if(is_integer($opcao) and $opcao >= 1 and $opcao <= 3)
                         {
                             $opcaoInt = $opcao;
                             break;
@@ -865,7 +866,7 @@
 
                 case 4:
                 
-                    while($opcao != "1" or $opcao != "2" or $opcao != "3")
+                    while(is_integer($opcao) and $opcao >= 1 and $opcao <= 3)
                     {
                         echo("╔═══════════════════════════════════════════════════════════╗ \n");
                         echo("║                                                           ║ \n");
@@ -882,7 +883,7 @@
                         echo("╚═══════════════════════════════════════════════════════════╝ \n");
                         $opcao = readline("");
                     
-                        if($opcao == "1" or $opcao == "2" or $opcao == "3")
+                        if(is_integer($opcao) and $opcao >= 1 and $opcao <= 3)
                         {
                             $opcaoInt = $opcao;
                             break;
@@ -939,11 +940,11 @@
 
 	function ConsumirAlimentos()
     {
-		while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4" or $opcao != "5" or $opcao != "6" or $opcao != "7" or $opcao != "8" or $opcao != "9" or $opcao != "10")
+		while(is_integer($opcao) and $opcao >= 1 and $opcao <=10)
         {
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
-            echo("║               Escolha um algo foringerir:               ║ \n");
+            echo("║               Escolha um algo para ingerir:               ║ \n");
             echo("║                                                           ║ \n");
             echo("║                   1_ Carne de Gato                        ║ \n");
             echo("║                                                           ║ \n");
@@ -968,7 +969,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
             
-            if($opcao == "1" or $opcao == "2" or $opcao == "3" or $opcao == "4" or $opcao == "5" or $opcao == "6" or $opcao == "7" or $opcao == "8" or $opcao == "9" or $opcao == "10")
+            if(is_integer($opcao) and $opcao >= 1 and $opcao <= 10)
             {
                 $opcaoInt = $opcao;
                 break;
@@ -1030,9 +1031,9 @@
         echo("2_  não \n");
         $opcao = readline("");
         
-        while($opcao != "1" or $opcao != "2")
+        while(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
         {
-            if($opcao == "1" or $opcao == "2")
+            if(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
             {
                 $opcaoInt = $opcao;
                 break;
@@ -1084,9 +1085,9 @@
         echo("2_  não \n");
         $opcao = readline("");
         
-        while($opcao != "1" or $opcao != "2")
+        while(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
         {
-            if($opcao == "1" or $opcao == "2")
+            if(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
             {
                 $opcaoInt = $opcao;
                 break;
@@ -1135,9 +1136,9 @@
         echo("2_  não \n");
         $opcao = readline("");
         
-        while($opcao != "1" or $opcao != "2")
+        while(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
         {
-            if($opcao == "1" or $opcao == "2")
+            if(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
             {
                 $opcaoInt = $opcao;
                 break;
@@ -1175,12 +1176,12 @@
 	function AlimentarAnimais($x, $a, $b, $c)
     {
         
-        while($opcao != "1" or $opcao != "2" or $opcao != "3" or $opcao != "4")
+        while(is_integer($opcao) and !($opcao >= 1 and $opcao <=4))
         {
             
             echo("╔═══════════════════════════════════════════════════════════╗ \n");
             echo("║                                                           ║ \n");
-            echo("║           Qual ração deseja usar forAlimentar           ║ \n");
+            echo("║           Qual ração deseja usar para Alimentar           ║ \n");
             echo("║                                                           ║ \n");
             echo("║                    Escolha uma opção:                     ║ \n");
             echo("║                                                           ║ \n");
@@ -1195,7 +1196,7 @@
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
         
-            if($opcao == "1" or $opcao == "2" or $opcao == "3" or $opcao == "4")
+            if(is_integer($opcao) and $opcao >= 1 and $opcao <= 4)
             {
                 $opcaoInt = $opcao;
                 break;
@@ -1212,15 +1213,15 @@
             case 1:
             echo("Quantas desta rações você deseja usar foralimentar este animal?? \n");
             $quantidade = readline();
-            echo("Reultará em: " . $quantidade)
+            echo("Reultará em: " . $quantidade);
             echo("\n deseja alimentar? \n");
             echo("1_  sim \n");
             echo("2_  não \n");
             $opcao = readline("");
             
-            while($opcao != "1" or $opcao != "2")
+            while(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
             {
-                if($opcao == "1" or $opcao == "2")
+                if(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
                 {
                     $opcaoInt = $opcao;
                     break;
@@ -1262,9 +1263,9 @@
                 echo("2_  não \n");
                 $opcao = readline("");
                 
-                while($opcao != "1" or $opcao != "2")
+                while(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
                 {
-                    if($opcao == "1" or $opcao == "2")
+                    if(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
                     {
                         $opcaoInt = $opcao;
                         break;
@@ -1307,9 +1308,9 @@
                 echo("2_  não \n");
                 $opcao = readline("");
                 
-                while($opcao != "1" or $opcao != "2")
+                while(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
                 {
-                    if($opcao == "1" or $opcao == "2")
+                    if(is_integer($opcao) and $opcao >= 1 and $opcao <= 2)
                     {
                         $opcaoInt = $opcao;
                         break;
