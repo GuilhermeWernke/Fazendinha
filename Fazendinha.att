@@ -3,12 +3,12 @@
 
     $matriz = array
     (
-        "Animais" => array("Vaca" => 0, "Touro" => 0, "Jumenta" => 2, "Jegue" => 0,),
-        "Racao" => array("Vaca" => 1.0, "Touro" => 1.0, "Jumenta" => 1.0, "Jegue" => 1.0,),
-        "Valor" => array("Vaca" => 1900.0, "Leite_Vaca" => 200.0, "Touro" => 15000.0, "Carne_de_Bovino" => "", "Jumenta" => 700.0, "Leite_Jumenta" => 50.0, "Jegue" => 500.0, ),
-        "" => array("" => "", "" => "", "" => "",),
-        
-
+        "Animais"          => array("Vaca" => 0, "Touro" => 0, "Jumenta" => 2, "Jegue" => 0,),
+        "Racao_Quantidade" => array("Racao_Barata" => 0, "Racao_Media" => 1.0, "Racao_Cara" => 1.0,),
+        "Racao_Contagem"   => array("Vaca" => 1.0, "Touro" => 1.0, "Jumenta" => 1.0, "Jegue" => 1.0,),
+        "Alimentos"        => array("Leite_Vaca" => 0, "Leite_Jumenta" => 0, "Verduras" => 0, "Frutas" => 0, "Cereais" => 0, "Agua" => 0, "Suco" => 0,),
+        "Valor"            => array("Vaca" => 1900.0, "Leite_Vaca" => 200.0, "Touro" => 15000.0, "Carne_de_Bovino" => 700.0, "Jumenta" => 700.0, "Leite_Jumenta" => 50.0, "Jegue" => 500.0, "Verduras" => 50.0, "Frutas" => 30.0, "Cereais" => 80.0, "Agua" => 80.0, "Suco" => 35.0,),
+    
     );
 
     $numeroDias = 0;
@@ -17,36 +17,6 @@
     $energia = 100;
     $dormir = 0;
     $dinheiro = 0.0;
-
-    //Alimentos e preços
-    $leite_vaca = 0;
-    $leite_jumenta = 0;
-    $carne_de_gato = 0;
-
-    $valor__carne_de_bovino = 700.0;
-
-    $carne_de_cachorro = 0;
-
-    $valor__carne_de_cachorro = 300.0;
-
-    $verduras = 0;
-    $valor_verduras = 50.0;
-    $frutas = 0;
-    $valor_frutas = 30.0;
-    $cereais = 0;
-    $valor_cereais = 80.0;
-    $agua = 0;
-    $valor_agua = 60.0;
-    $suco = 0;
-    $valor_suco = 35.0;
-    
-    //Rações
-    $racao_barata = 0;
-    $valor__racao_barata = 100.0;
-    $racao_media  = 0;
-    $valor__racao_media = 200.0;
-    $racao_cara = 0;
-    $valor__racao_cara = 400.0;
 
     //Produção
     $time_leite_vaca = 0;
@@ -372,38 +342,34 @@
             echo("║                                                           ║ \n");
             echo("║            Escolha um alimento para comprar:              ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                  1_ Carne de Gato                         ║ \n");
+            echo("║                   1_ Carne de Boi                         ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                 2_ Carne de Cachorro                      ║ \n");
+            echo("║                     2_ Verduras                           ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                   3_ Carne de Boi                         ║ \n");
+            echo("║                      3_ Frutas                            ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                     4_ Verduras                           ║ \n");
+            echo("║                      4_ Cereais                           ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                      5_ Frutas                            ║ \n");
+            echo("║                       5_ Água                             ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                      6_ Cereais                           ║ \n");
+            echo("║                      6_ Leite Vaca                        ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                       7_ Água                             ║ \n");
+            echo("║                     7_ Leite Jumenta                      ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                      8_ Leite Vaca                        ║ \n");
+            echo("║                        8_ Suco                            ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                     9_ Leite Jumenta                      ║ \n");
+            echo("║                 9_ Ração Barata (3 Dias)                  ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                       10_ Suco                            ║ \n");
+            echo("║                 10_ Ração Média (5 Dias)                  ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                11_ Ração Barata (3 Dias)                  ║ \n");
+            echo("║                  11_ Ração Cara (7 Dias)                  ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                 12_ Ração Média (5 Dias)                  ║ \n");
-            echo("║                                                           ║ \n");
-            echo("║                  13_ Ração Cara (7 Dias)                  ║ \n");
-            echo("║                                                           ║ \n");
-            echo("║                       14_ Voltar                          ║ \n");
+            echo("║                       12_ Voltar                          ║ \n");
             echo("║                                                           ║ \n");
             echo("╚═══════════════════════════════════════════════════════════╝ \n");
             $opcao = readline("");
             
-            if(VerificarNumero($opcao) and !($opcao >= 1 and $opcao <=14))
+            if(VerificarNumero($opcao) and !($opcao >= 1 and $opcao <=12))
             {
                 $opcaoInt = $opcao;
                 break;
@@ -417,55 +383,51 @@
         switch($opcaoInt)
         {
             case 1:			
-                    AbreviarMercado($valor__carne_de_gato, $carne_de_gato);
+                    AbreviarMercado($valor__carne_de_boi, $carne_de_boi);
             break;
             
             case 2:
-                AbreviarMercado($valor__carne_de_cachorro, $carne_de_cachorro);
-            break;
-            
-            case 3:
-                AbreviarMercado($valor__carne_de_boi, $carne_de_boi);
-            break;
-            
-            case 4:
                 AbreviarMercado($valor_verduras, $verduras);
             break;
             
-            case 5:
+            case 3:
                 AbreviarMercado($valor_frutas, $frutas);
             break;
+
+            case 4:
+                AbreviarMercado($valor_cereais, $cereais);
+            break;
             
-            case 7:
+            case 5:
                 AbreviarMercado($valor_agua, $agua);
             break;
             
-            case 8:
+            case 6:
                 AbreviarMercado($valor_leite_vaca, $leite_vaca);
             break;
 
-            case 9:
+            case 7:
                 AbreviarMercado($valor_leite_jumenta, $leite_jumenta);
             break;
             
-            case 10:
+            case 8:
                 AbreviarMercado($valor_suco, $suco);
             break;
         
-            case 11:
+            case 9:
                 AbreviarMercado($valor__racao_barata, $racao_barata);
             break;
             
-            case 12:
+            case 10:
                 AbreviarMercado($valor__racao_media, $racao_media);
             break;
             
             
-            case 13:
+            case 11:
                 AbreviarMercado($valor__racao_cara, $racao_cara);
             break;	
 
-            case 14:
+            case 12:
                 Mercado();
 
         }//switch alimentos
