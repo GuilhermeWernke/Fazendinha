@@ -13,6 +13,25 @@
     $comecar_jogo = 0;
     $sair_voltar = 0;
     
+    $bovinos = 
+    [
+        new Bovino("Ferdinando", 7, "M", 1000),
+        new Bovino("Mimosa", 10, "F", 1200)
+    ];
+    
+    function cadastrarBovino($nome, $idade, $genero, $preco) 
+    {
+        
+        global $bovinos;
+        
+        $id = count($bovinos) + 1;
+        
+        $novoBovino = new Bovino($nome, $idade, $genero, $preco);
+        $novoBovino->setID($id);
+        $bovinos[] = $novoBovino;
+        
+    }
+    
     while(!($opcao >= 1 and $opcao <= 2))
     {
         echo("╔═══════════════════════════════════════════════════════════╗ \n");
@@ -435,11 +454,7 @@
             echo("║                                                           ║ \n");
             echo("║                      1_ Vaca                              ║ \n");
             echo("║                                                           ║ \n");
-            echo("║                      2_ Torro                             ║ \n");
-            echo("║                                                           ║ \n");
-            echo("║                      3_ Jegue                             ║ \n");
-            echo("║                                                           ║ \n");
-            echo("║                      4_ Jumenta                           ║ \n");
+            echo("║                      2_ Touro                             ║ \n");
             echo("║                                                           ║ \n");
             echo("║                      0_ Voltar                            ║ \n");
             echo("║                                                           ║ \n");
@@ -473,11 +488,9 @@
                         echo("║                                                           ║ \n");
                         echo("║                         2_ Nomear                         ║ \n");
                         echo("║                                                           ║ \n");
-                        echo("║                       3_ Alimentar                        ║ \n");
+                        echo("║                       3_ Tirar leite                      ║ \n");
                         echo("║                                                           ║ \n");
-                        echo("║                      4_ Tirar leite                       ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                       0_ Voltar                           ║ \n");
+                        echo("║                          0_ Voltar                        ║ \n");
                         echo("║                                                           ║ \n");
                         echo("╚═══════════════════════════════════════════════════════════╝ \n");
                         $opcao = readline("");
@@ -497,26 +510,33 @@
                     {
                         
                         case 1:
+                            
                             Status($vaca);
+                            
                         break;
                         
                         case 2:
+                            
+                            $opcao = readline("Qual vaca deseja mudar o nome? \n");
+                            
                             Nomear($vaca);
+                            
                         break;
                         
                         case 3:
-                            AlimentarAnimais($vaca_alimentada, $racao_cara, $racao_media, $racao_barata);
-                        break;
-                        
-                        case 4:
+                            
                             Leite($vaca_alimentada, $time_leite_vaca, $leite_vaca, $vaca);
+                            
                         break;
                         
                         case 0:
+                            
                             Animais();
+                            
                         break;
                     }// switch $vaca
                 break;
+                
                 case 2:
                 
                     while($opcao >= 1 and $opcao <= 3)
@@ -559,104 +579,52 @@
                         break;
                     }//switch torro
                 break;
-                case 3:
                 
-                    while($opcao >= 1 and $opcao <= 3)
-                    {
-                        echo("╔═══════════════════════════════════════════════════════════╗ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                          Jegue                            ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                    Escolha uma opção:                     ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                       1_ Alimentar                        ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                        2_ Cruzar                          ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                        0_ Voltar                          ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("╚═══════════════════════════════════════════════════════════╝ \n");
-                        $opcao = readline("");
-                        
-                        if($opcao >= 1 and $opcao <= 3)
-                        {
-                            $opcao = $opcao;
-                            break;
-                        }
-                        else
-                        {
-                            echo("Valor informado está errado!\n");
-                        }
-                    }
-                    
-                    switch($opcao)
-                    {
-                        case 1:
-                            AlimentarAnimais($jegue_alimentado, $racao_cara, $racao_media, $racao_barata);
-                        break;
-                        
-                        case 2:
-                            Reproduzir($time_fazer_bebe_jumenta, $bebe_jumenta, $jegue_alimentado, $jegue, $jumenta);
-                        break;
-                        
-                        case 0:
-                            Animais();
-                        break;
-                        
-                    }//switch jegue
-                break;
-                
-                case 4:
-                
-                    while($opcao >= 1 and $opcao <= 3)
-                    {
-                        echo("╔═══════════════════════════════════════════════════════════╗ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                         Jumenta                           ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                    Escolha uma opção:                     ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                      1_ Tirar leite                       ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("║                        0_ Voltar                          ║ \n");
-                        echo("║                                                           ║ \n");
-                        echo("╚═══════════════════════════════════════════════════════════╝ \n");
-                        $opcao = readline("");
-                        
-                        if($opcao >= 1 and $opcao <= 3)
-                        {
-                            $opcao = $opcao;
-                            break;
-                        }
-                        else
-                        {
-                            echo("Valor informado está errado!\n");
-                        }
-                    }
-                        
-                    switch($opcao)
-                    {
-                            
-                        case 1:
-                            Leite($jumenta_alimentada, $time_leite_jumenta, $leite_jumenta, $jumenta);
-                        break;
-                            
-                        case 0:
-                            Animais();
-                        break;
-                        
-                    }//switch jumenta
-                    case 5:
-                            mercado_inicio();
+                case 0:
+                    mercado_inicio();
                 break;
             
             }//administrar animais
 	}//function Animais
     
+    function Status($x)
+    {
+        
+        if($x->getNome() == "")
+        {
+            
+            echo("Número: " . $x->getID() . "\n");
+            
+        }
+        else
+        {
+            
+            echo("Nome: " . $x->getNome() . "\n");
+            echo("Número: " . $x->getID() . "\n");
+            
+        }
+        
+        echo("Idade: " . $x->getIdade() . "\n");
+        echo("Genero: " . $x->getGenero() . "\n");
+        echo("Preço: " . $x->getPreco() . "\n");
+        echo("\n");
+        
+    }
+    
+    function Nomear($x)
+    {
+        
+        echo("Digite o nome do animal: \n");
+        $nome = readline();
+        $x->setNome($nome);
+        echo("Nome do animal alterado com sucesso!\n");
+        
+    }
+    
     function Reproduzir($time, $bebe, $racao, $touroo, $vacaa)
     {
         
-        
+        $
         
     }//function reproduzir
     
@@ -672,8 +640,6 @@
             echo("Já tiror leite de todas as $vacas!\n");
         }
     }   
-    
-    
     
     function AbreviarMercado($x, $y)
     {
