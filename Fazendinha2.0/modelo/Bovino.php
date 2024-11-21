@@ -29,7 +29,7 @@
         public function getStatus()
         {
             
-            return " ID: " . $this->getID() . "\n Nome: " . $this->getNome() .  "\n Idade: " . $this->getIdade() . " anos \n Gênero: " . $this->getGenero() . "\n Preço: " . $this->getPreco() .  "\n";
+            return " ID: " . $this->getID() . "\n Nome: " . $this->getNome() .  "\n Idade: " . $this->getIdade() . " anos \n Gênero: " . $this->getGenero() . "\n Preço: " . $this->getPreco() .  "\n\n";
             
         }
         
